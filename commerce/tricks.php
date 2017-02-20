@@ -5,14 +5,14 @@
 // ******************************
 	
 	// Get entity manager
-	$entity_manager = \Drupal::entityManager();
+	$entityManager = \Drupal::entityManager();
 
 	// Get order type
-	$order_storage = $entity_manager->getStorage('commerce_order_type');
-	$order_type = $order_storage->load('consumer_products')->id();
+	$orderStorage = $entityManager->getStorage('commerce_order_type');
+	$orderType = $orderStorage->load('consumer_products')->id();
 	
 	// Get store
-	$store = $entity_manager->getStorage('commerce_store')->loadDefault();
+	$store = $entityManager->getStorage('commerce_store')->loadDefault();
 	
 	// Currrent user
 	$uid = \Drupal::currentUser();
@@ -21,14 +21,14 @@
 	$cartProvider = Drupal::service('commerce_cart.cart_provider');
 	
 	// Get Cart
-	$order = $cartProvider->getCart($order_type, $store, $uid);
+	$order = $cartProvider->getCart($orderType, $store, $uid);
 
 
 // ******************************
 // Get path object
 // ******************************
   $path = '/node/3'
-	$path_object = \Drupal::service('path.validator')->getUrlIfValid($path);
+	$pathObbject = \Drupal::service('path.validator')->getUrlIfValid($path);
 
 
 // ******************************
