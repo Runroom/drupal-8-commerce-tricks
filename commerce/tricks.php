@@ -41,3 +41,10 @@
   
 	 //Ex:
 	 // <a href="{{ path('commerce_checkout.form', {'commerce_order': order_id}) }}" class='link'>{{ 'Buy'|t }}</a>
+
+
+// ***********************************
+// Apply currency price format in twig
+// ***********************************
+
+// {{ price|commerce_price_format }}
