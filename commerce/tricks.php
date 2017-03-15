@@ -48,3 +48,16 @@
 // ***********************************
 
 // {{ price|commerce_price_format }}
+
+// ********************************
+// Get variation data by target_id
+// ********************************
+
+  // If we have the targe_id of a variation type for product, we can 
+  // load the variation data by:
+  $target_id = '5';
+  $price = \Drupal::entityTypeManager()->getStorage('commerce_product_variation')->load($target_id)->getPrice();
+
+  // We can get the EntityTypeId of variation by:
+  // $entity_type_id is 'commerce_product_variation';
+  $entity_type_id = $product->getDefaultVariation()->getEntityTypeId();
