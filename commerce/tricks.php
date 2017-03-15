@@ -61,3 +61,12 @@
   // We can get the EntityTypeId of variation by:
   // $entity_type_id is 'commerce_product_variation';
   $entity_type_id = $product->getDefaultVariation()->getEntityTypeId();
+
+// ***************************************
+// Get currency object by currency storage
+// ***************************************
+
+  $price = new Price('9,99', 'EUR');
+  $currency_storage = \Drupal::entityTypeManager()->getStorage('commerce_currency');
+  $currency = $currency_storage->load($price->getCurrencyCode());
+  $symbol = $currency->getSymbol();
