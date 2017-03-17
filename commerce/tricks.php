@@ -70,3 +70,11 @@
   $currency_storage = \Drupal::entityTypeManager()->getStorage('commerce_currency');
   $currency = $currency_storage->load($price->getCurrencyCode());
   $symbol = $currency->getSymbol();
+
+// ***************************************
+// Render specific entity
+// ***************************************
+   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+   $entity = \Drupal::entityTypeManager()->getStorage('commerce_product')->load(25);
+   $render_controller = \Drupal::entityTypeManager()->getViewBuilder('commerce_product');
+   $product_data['add_to_cart'] = $render_controller->view($entity, 'add_to_cart_product_view', $language);
